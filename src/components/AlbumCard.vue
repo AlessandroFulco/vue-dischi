@@ -1,10 +1,10 @@
 <template>
-    <figure class="figure">
-        <img :src="albumData.response.poster" :alt="albumData.response.title">
+    <figure class="album">
+        <img :src="albumData.poster" :alt="albumData.title">
         <figcaption>
-            <h2></h2>
-            <div></div>
-            <div></div>
+            <h2>{{albumData.title}}</h2>
+            <div>{{albumData.author}}</div>
+            <div>{{albumData.genre}}</div>
         </figcaption>
     </figure>
 </template>
@@ -21,7 +21,21 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-    h3 {
-        margin: 40px 0 0;
+    .album {
+        flex-basis: calc((100% - 100px) / 5);
+        background-color: #2e3a46;
+        margin-bottom: 20px;
+        img {
+            padding-top: 20px;
+            max-width: 150px;
+            height: auto;
+        }
+        h2 {
+            
+            color: #fff;
+        }
+        div{
+            color: #aaa;
+        }
     }
 </style>

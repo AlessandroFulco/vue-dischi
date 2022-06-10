@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="container-album">
         <AlbumCard
             v-for="(album, index) in albumAuthor" :key="index"
             :albumData="album"
@@ -29,6 +29,7 @@ export default {
             axios
             .get(this.apiUrl)
             .then(result => {
+                this.albumAuthor = result.data.response;
                 console.log(result);
             })
             .catch(error => {
@@ -41,7 +42,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-    h3 {
-        margin: 40px 0 0;
+    .container-album{
+        padding: 50px;
+        margin: 0 auto;
+        width: 70%;
+        height: 100vh;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
     }
 </style>
