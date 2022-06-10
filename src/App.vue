@@ -1,16 +1,19 @@
 <template>
   <div id="app">
+    <MyHeader/>
     <ContainerAlbum/>
   </div>
 </template>
 
 <script>
 import ContainerAlbum from './components/ContainerAlbum.vue'
+import MyHeader from './components/MyHeader.vue'
 
 export default {
   name: 'App',
   components: {
-    ContainerAlbum
+    ContainerAlbum,
+    MyHeader
   }
 }
 </script>

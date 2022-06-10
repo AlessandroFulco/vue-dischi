@@ -3,8 +3,11 @@
         <img :src="albumData.poster" :alt="albumData.title">
         <figcaption>
             <h2>{{albumData.title}}</h2>
-            <div>{{albumData.author}}</div>
-            <div>{{albumData.genre}}</div>
+            <span>
+                {{albumData.author}}
+                <br>
+                {{albumData.genre}}
+            </span>
         </figcaption>
     </figure>
 </template>
@@ -30,12 +33,18 @@ export default {
             max-width: 150px;
             height: auto;
         }
-        h2 {
-            
+        figcaption {
+            h2 {
+                text-transform: uppercase;
+            margin-top: 20px;
             color: #fff;
-        }
-        div{
-            color: #aaa;
+            }
+            span {
+                font-weight: bold;
+                display: inline-block;
+                margin-top: 20px;
+                color: #aaa;
+            }
         }
     }
 </style>

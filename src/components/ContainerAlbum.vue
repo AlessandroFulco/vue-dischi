@@ -46,7 +46,7 @@ export default {
         padding: 50px;
         margin: 0 auto;
         width: 70%;
-        height: 100vh;
+        height: calc(100vh - 100px);
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
