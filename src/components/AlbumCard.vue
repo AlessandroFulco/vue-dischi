@@ -26,6 +26,7 @@ export default {
 <style scoped lang="scss">
     .album {
         flex-basis: calc((100% - 100px) / 5);
+        min-height: 350px;
         background-color: #2e3a46;
         margin-bottom: 20px;
         img {

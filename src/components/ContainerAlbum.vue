@@ -1,24 +1,38 @@
 <template>
-    <section class="container-album">
+    <div>
+        <MySelected
+        @mySearch="inputGenere"
+        />
+        
+
+        <section class="container-album">
+
+    
         <AlbumCard
-            v-for="(album, index) in albumAuthor" :key="index"
+            v-for="(album, index) in filteredGenre" :key="index"
             :albumData="album"
         />
     </section>
+    </div>
+    
 </template>
 
 <script>
 import axios from "axios"
 import AlbumCard from "./AlbumCard.vue"
+import MySelected from "./MySelected.vue"
+
 export default {
     name: 'ContainerAlbum',
     components: {
-        AlbumCard
-    },
+    AlbumCard,
+    MySelected
+},
     data(){
         return {
             apiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
-            albumAuthor: []
+            albumAuthor: [],
+            userText : "",
         }
     },
     created() {
@@ -36,6 +50,20 @@ export default {
                 console.log("Errore", error);
             })
         },
+        inputGenere(genereUser) {
+            this.userText = genereUser;
+        }
+    },
+    computed: {
+        filteredGenre(){
+            if ( this.userText === "all") {
+                return this.albumAuthor;
+            }   else {
+                return this.albumAuthor.filter(item => {
+                    return item.genre.toLowerCase().includes(this.userText.toLowerCase());
+                });
+            }
+        }
     }
 }
 </script>
@@ -50,6 +78,7 @@ export default {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        align-items: flex-start;
         gap: 20px;
     }
 </style>
